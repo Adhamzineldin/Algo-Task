@@ -1,0 +1,29 @@
+Procedure find_longest_balanced_substring(s)
+1: Set n = length of s
+2: Set longest = 0
+
+3: For i = 0 to n - 1 do
+4:    Set count1 = 0, count2 = 0
+5:    Set char1 = s[i]
+6:    Set char2 = None
+
+7:    For j = i to n - 1 do
+8:        If s[j] == char1 then
+9:            Increment count1
+10:        Else If char2 is None then
+11:            Set char2 = s[j]
+12:            Increment count2
+13:        Else If s[j] == char2 then
+14:            Increment count2
+15:        Else
+16:            Break loop
+17:        EndIf
+
+18:        If count1 == count2 and count1 > 0 then
+19:            Set longest = max(longest, j - i + 1)
+20:        EndIf
+21:    EndFor
+22: EndFor
+
+23: Return longest
+EndProcedure

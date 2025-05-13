@@ -1,0 +1,38 @@
+Procedure find_longest_balanced_substring(s, i = 0, j = 0)
+1:  If i ≥ length of s then
+2:      Return 0
+3:  EndIf
+
+4:  If j ≥ length of s then
+5:      Return find_longest_balanced_substring(s, i + 1, i + 1)
+6:  EndIf
+
+7:  Set count1 = 0, count2 = 0
+8:  Set char1 = s[i]
+9:  Set char2 = None
+
+10: For k = i to j do
+11:     If s[k] == char1 then
+12:         Increment count1
+13:     Else If char2 is None then
+14:         Set char2 = s[k]
+15:         Increment count2
+16:     Else If s[k] == char2 then
+17:         Increment count2
+18:     Else
+19:         Return max(
+              find_longest_balanced_substring(s, i, j + 1),
+              find_longest_balanced_substring(s, i + 1, i + 1)
+           )
+20:     EndIf
+21: EndFor
+
+22: If count1 == count2 and count1 > 0 then
+23:     Return max(
+            j - i + 1,
+            find_longest_balanced_substring(s, i, j + 1)
+        )
+24: Else
+25:     Return find_longest_balanced_substring(s, i, j + 1)
+26: EndIf
+EndProcedure

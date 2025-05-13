@@ -1,0 +1,39 @@
+Procedure is_balanced(string)
+1: Create an empty dictionary letters
+2: For each letter in string do
+3:    If letter exists in letters then
+4:        Increment letters[letter]
+5:    Else
+6:        Set letters[letter] = 1
+7:    EndIf
+8:    If length of letters > 2 then
+9:        Return False
+10:    EndIf
+11: EndFor
+
+12: If length of letters ≠ 2 then
+13:    Return False
+14: EndIf
+
+15: Set values = list of values in letters
+16: If values[0] = values[1] then
+17:    Return True
+18: Else
+19:    Return False
+20: EndIf
+EndProcedure
+
+
+
+Procedure find_longest_balanced_substring(string)
+1: Set longest = 0
+2: For i = 0 to length of string - 1 do
+3:    For j = i + 1 to length of string do
+4:        Set Substring = string[i..j]
+5:        If is_balanced(Substring) then
+6:            Set longest = max(longest, j - i)
+7:        EndIf
+8:    EndFor
+9: EndFor
+10: Return longest
+EndProcedure
