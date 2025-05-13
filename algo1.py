@@ -26,7 +26,7 @@ def find_longest_balanced_substring(string):
 
 
 
-string = "a"
+string = input("Input your string: ")
 print(find_longest_balanced_substring(string))  
 
 

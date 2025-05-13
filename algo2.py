@@ -25,5 +25,5 @@ def find_longest_balanced_substring(s):
     return longest
 
 
-string = "aabbaaabbb"
-print(find_longest_balanced_substring(string))
+string = input("Input your string: ")
+print(find_longest_balanced_substring(string))  
